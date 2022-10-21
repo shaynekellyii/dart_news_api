@@ -8,6 +8,7 @@ class ArticleMetadata with _$ArticleMetadata {
   /// Generated ArticleMetadata factory
   const factory ArticleMetadata({
     required Map<String, int> wordFrequency,
+    required int charCount,
   }) = _ArticleMetadata;
 
   /// Generated serialization factory

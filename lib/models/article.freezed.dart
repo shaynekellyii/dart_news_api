@@ -50,6 +50,8 @@ abstract class $ArticleCopyWith<$Res> {
       ArticleMetadata metadata,
       String? description,
       String? imageUrl});
+
+  $ArticleMetadataCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -114,6 +116,14 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
               as String?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ArticleMetadataCopyWith<$Res> get metadata {
+    return $ArticleMetadataCopyWith<$Res>(_value.metadata, (value) {
+      return _then(_value.copyWith(metadata: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -133,6 +143,9 @@ abstract class _$$_ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       ArticleMetadata metadata,
       String? description,
       String? imageUrl});
+
+  @override
+  $ArticleMetadataCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -251,7 +264,8 @@ class _$_Article implements _Article {
                 other.sourceName == sourceName) &&
             (identical(other.sourceUrl, sourceUrl) ||
                 other.sourceUrl == sourceUrl) &&
-            const DeepCollectionEquality().equals(other.metadata, metadata) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.imageUrl, imageUrl) ||
@@ -260,17 +274,8 @@ class _$_Article implements _Article {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      createdAt,
-      title,
-      url,
-      content,
-      sourceName,
-      sourceUrl,
-      const DeepCollectionEquality().hash(metadata),
-      description,
-      imageUrl);
+  int get hashCode => Object.hash(runtimeType, createdAt, title, url, content,
+      sourceName, sourceUrl, metadata, description, imageUrl);
 
   @JsonKey(ignore: true)
   @override

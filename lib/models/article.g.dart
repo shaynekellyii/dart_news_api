@@ -13,7 +13,8 @@ _$_Article _$$_ArticleFromJson(Map<String, dynamic> json) => _$_Article(
       content: json['content'] as String,
       sourceName: json['sourceName'] as String,
       sourceUrl: json['sourceUrl'] as String,
-      metadata: json['metadata'],
+      metadata:
+          ArticleMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       description: json['description'] as String?,
       imageUrl: json['imageUrl'] as String?,
     );

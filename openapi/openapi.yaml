@@ -134,6 +134,9 @@ components:
           properties:
             word:
               type: integer
+        charCount:
+          type: integer
+          example: 1024
       required:
         - count
         - articles

@@ -14,6 +14,8 @@ extension GNewsArticleExt on GNewsArticle {
   /// Transforms the GNews specific list response into the generic class.
   Article toGeneric() => Article.fromGNewsArticle(this);
 
-  ArticleMetadata get metadata =>
-      ArticleMetadata(wordFrequency: Metadata.generateWordFrequency(content));
+  ArticleMetadata get metadata => ArticleMetadata(
+        wordFrequency: Metadata.generateWordFrequency(content),
+        charCount: content.length,
+      );
 }

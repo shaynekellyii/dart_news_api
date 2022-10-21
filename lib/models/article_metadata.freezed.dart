@@ -21,6 +21,7 @@ ArticleMetadata _$ArticleMetadataFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ArticleMetadata {
   Map<String, int> get wordFrequency => throw _privateConstructorUsedError;
+  int get charCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $ArticleMetadataCopyWith<$Res> {
           ArticleMetadata value, $Res Function(ArticleMetadata) then) =
       _$ArticleMetadataCopyWithImpl<$Res, ArticleMetadata>;
   @useResult
-  $Res call({Map<String, int> wordFrequency});
+  $Res call({Map<String, int> wordFrequency, int charCount});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$ArticleMetadataCopyWithImpl<$Res, $Val extends ArticleMetadata>
   @override
   $Res call({
     Object? wordFrequency = null,
+    Object? charCount = null,
   }) {
     return _then(_value.copyWith(
       wordFrequency: null == wordFrequency
           ? _value.wordFrequency
           : wordFrequency // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
+      charCount: null == charCount
+          ? _value.charCount
+          : charCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -69,7 +75,7 @@ abstract class _$$_ArticleMetadataCopyWith<$Res>
       __$$_ArticleMetadataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, int> wordFrequency});
+  $Res call({Map<String, int> wordFrequency, int charCount});
 }
 
 /// @nodoc
@@ -84,12 +90,17 @@ class __$$_ArticleMetadataCopyWithImpl<$Res>
   @override
   $Res call({
     Object? wordFrequency = null,
+    Object? charCount = null,
   }) {
     return _then(_$_ArticleMetadata(
       wordFrequency: null == wordFrequency
           ? _value._wordFrequency
           : wordFrequency // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
+      charCount: null == charCount
+          ? _value.charCount
+          : charCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -97,7 +108,8 @@ class __$$_ArticleMetadataCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ArticleMetadata implements _ArticleMetadata {
-  const _$_ArticleMetadata({required final Map<String, int> wordFrequency})
+  const _$_ArticleMetadata(
+      {required final Map<String, int> wordFrequency, required this.charCount})
       : _wordFrequency = wordFrequency;
 
   factory _$_ArticleMetadata.fromJson(Map<String, dynamic> json) =>
@@ -111,8 +123,11 @@ class _$_ArticleMetadata implements _ArticleMetadata {
   }
 
   @override
+  final int charCount;
+
+  @override
   String toString() {
-    return 'ArticleMetadata(wordFrequency: $wordFrequency)';
+    return 'ArticleMetadata(wordFrequency: $wordFrequency, charCount: $charCount)';
   }
 
   @override
@@ -121,13 +136,15 @@ class _$_ArticleMetadata implements _ArticleMetadata {
         (other.runtimeType == runtimeType &&
             other is _$_ArticleMetadata &&
             const DeepCollectionEquality()
-                .equals(other._wordFrequency, _wordFrequency));
+                .equals(other._wordFrequency, _wordFrequency) &&
+            (identical(other.charCount, charCount) ||
+                other.charCount == charCount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_wordFrequency));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_wordFrequency), charCount);
 
   @JsonKey(ignore: true)
   @override
@@ -145,13 +162,16 @@ class _$_ArticleMetadata implements _ArticleMetadata {
 
 abstract class _ArticleMetadata implements ArticleMetadata {
   const factory _ArticleMetadata(
-      {required final Map<String, int> wordFrequency}) = _$_ArticleMetadata;
+      {required final Map<String, int> wordFrequency,
+      required final int charCount}) = _$_ArticleMetadata;
 
   factory _ArticleMetadata.fromJson(Map<String, dynamic> json) =
       _$_ArticleMetadata.fromJson;
 
   @override
   Map<String, int> get wordFrequency;
+  @override
+  int get charCount;
   @override
   @JsonKey(ignore: true)
   _$$_ArticleMetadataCopyWith<_$_ArticleMetadata> get copyWith =>

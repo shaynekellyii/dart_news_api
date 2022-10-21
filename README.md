@@ -63,6 +63,8 @@ Hot reload is enabled on the dev server. Modifying and saving a file while the s
 
 ## Running tests
 
+> **_NOTE:_** Code is not 100% covered, but has basic tests. The tests implemented show how further coverage can be added, both in the dart_frog specific routing code and in the plain Dart code.
+
 ```bash
 cd /path/to/dart_news_api
 dart pub get

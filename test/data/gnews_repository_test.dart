@@ -17,7 +17,7 @@ final _cachedArticles = [
     content: 'content',
     sourceName: 'source name',
     sourceUrl: 'source url',
-    metadata: const ArticleMetadata(wordFrequency: {}),
+    metadata: const ArticleMetadata(wordFrequency: {}, charCount: 0),
   ),
 ];
 final _networkedArticles = [

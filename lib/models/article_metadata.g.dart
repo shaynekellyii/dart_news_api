@@ -9,9 +9,11 @@ part of 'article_metadata.dart';
 _$_ArticleMetadata _$$_ArticleMetadataFromJson(Map<String, dynamic> json) =>
     _$_ArticleMetadata(
       wordFrequency: Map<String, int>.from(json['wordFrequency'] as Map),
+      charCount: json['charCount'] as int,
     );
 
 Map<String, dynamic> _$$_ArticleMetadataToJson(_$_ArticleMetadata instance) =>
     <String, dynamic>{
       'wordFrequency': instance.wordFrequency,
+      'charCount': instance.charCount,
     };
