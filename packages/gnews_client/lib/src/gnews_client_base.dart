@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:country_code/country_code.dart';
 import 'package:dio/dio.dart';
 import 'package:gnews_client/src/models/gnews_models.dart';
@@ -74,7 +76,7 @@ class GNewsClient {
     if (country != null && !GNewsCountry.supportedCountries.contains(country)) {
       throw GNewsClientException(
         msg: 'Country ${country.alpha2} is not supported by GNews',
-        statusCode: 400,
+        statusCode: HttpStatus.badRequest,
       );
     }
 

@@ -5,11 +5,11 @@ This repository contains a simple Dart backend that interacts with a public news
 ## Project structure
 ```
 /news_server
-    - `/lib`: Server code not related to routing (e.g. repository, models, utilities)
-    - `/openapi`: openapi spec and generated documentation in Markdown format.
-    - `/packages/`: Dart packages that have functionality external to the server (e.g. GNews API client)
-    - `/routes/`: Controllers and middleware for API routing.
-    - `/tests/`: All tests for the server.
+    - /lib: Server code not related to routing (e.g. repository, models, utilities)
+    - /openapi: openapi spec and generated documentation in Markdown format.
+    - /packages: Dart packages that have functionality external to the server (e.g. GNews API client)
+    - /routes: Controllers and middleware for API routing.
+    - /tests: All tests for the server.
 ```
 
 ## API limit
@@ -23,6 +23,10 @@ As well, the free tier of the GNews API only returns a small part of the beginni
 - Fetch top news articles (can filter fetch count up to 10)
 - Search for news articles by keyword
     - Can additionally filter keyword searches by country
+
+## API documentation
+
+The API is documented with a YAML openapi spec. Generated markdown docs [can be found here](openapi/generated/).
 
 ## Running the project
 
@@ -47,6 +51,7 @@ To run the server (specifying `port` is optional and will default to `8080`):
 
 ```bash
 cd /path/to/dart_news_api
+dart pub get
 dart_frog dev --port 8080
 ✓ Running on http://localhost:8080 (3.4s)
 The Dart VM service is listening on http://127.0.0.1:8181/1U6MVRzgf6I=/
@@ -55,6 +60,14 @@ The Dart DevTools debugger and profiler is available at: http://127.0.0.1:8181/1
 ```
 
 Hot reload is enabled on the dev server. Modifying and saving a file while the server is running will reload the app with the changes.
+
+## Running tests
+
+```bash
+cd /path/to/dart_news_api
+dart pub get
+dart test
+```
 
 ## Regenerating server models
 

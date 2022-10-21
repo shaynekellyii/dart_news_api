@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dart_frog/dart_frog.dart';
 import 'package:gnews_client/gnews_client.dart';
 import 'package:logging/logging.dart';
@@ -16,7 +18,7 @@ Future<Response> onRequest(RequestContext context) async {
   if (keyword == null) {
     logger.severe(_keywordRequiredMsg);
     return Response.json(
-      statusCode: 400,
+      statusCode: HttpStatus.badRequest,
       body: {'error': _keywordRequiredMsg},
     );
   }
