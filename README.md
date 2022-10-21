@@ -52,6 +52,7 @@ An API key for [GNews](https://gnews.io) is required to fetch articles. Once an 
 cd /path/to/dart_news_api
 ```
 
+**.env:**
 ```env
 GNEWS_API_KEY={your_api_key_here}
 ```
