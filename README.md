@@ -46,7 +46,15 @@ This project uses the [dart_frog](https://pub.dev/packages/dart_frog) server fra
 dart pub global activate dart_frog_cli
 ```
 
-An API key for [GNews](https://gnews.io) is required to fetch articles.
+An API key for [GNews](https://gnews.io) is required to fetch articles. Once an API key is acquired, create a `.env` file in the root folder of this app:
+
+```bash
+cd /path/to/dart_news_api
+```
+
+```env
+GNEWS_API_KEY={your_api_key_here}
+```
 
 To run the server (specifying `port` is optional and will default to `8080`):
 
