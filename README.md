@@ -69,6 +69,15 @@ dart pub get
 dart test
 ```
 
+## Creating a production build
+
+```bash
+# Ensure you have Dart and the dart_frog_cli package installed
+cd /path/to/dart_news_api
+dart pub get
+dart_frog build
+```
+
 ## Regenerating server models
 
 This app uses [freezed](https://pub.dev/packages/freezed) and [build_runner](https://pub.dev/packages/build_runner) to generate models and json converters. To regenerate the models:
@@ -76,6 +85,8 @@ This app uses [freezed](https://pub.dev/packages/freezed) and [build_runner](htt
 ```bash
 dart run build_runner build --delete-conflicting-outputs
 ```
+
+A `Dockerfile` will be generated in the `build` folder. To more info on deploying the server, [see the dart_frog documentation.](https://dartfrog.vgv.dev/docs/category/deploy)
 
 ## Regenerating openapi documentation
 
