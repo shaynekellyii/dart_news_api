@@ -23,6 +23,7 @@ As well, the free tier of the GNews API only returns a small part of the beginni
 - Fetch top news articles (can filter fetch count up to 10)
 - Search for news articles by keyword
     - Can additionally filter keyword searches by country
+- Articles have a `metadata` object which currently includes word frequency and character count.
 
 ## API documentation
 
@@ -80,6 +81,8 @@ dart pub get
 dart_frog build
 ```
 
+A `Dockerfile` will be generated in the `build` folder. To more info on deploying the server, [see the dart_frog documentation.](https://dartfrog.vgv.dev/docs/category/deploy)
+
 ## Regenerating server models
 
 This app uses [freezed](https://pub.dev/packages/freezed) and [build_runner](https://pub.dev/packages/build_runner) to generate models and json converters. To regenerate the models:
@@ -87,8 +90,6 @@ This app uses [freezed](https://pub.dev/packages/freezed) and [build_runner](htt
 ```bash
 dart run build_runner build --delete-conflicting-outputs
 ```
-
-A `Dockerfile` will be generated in the `build` folder. To more info on deploying the server, [see the dart_frog documentation.](https://dartfrog.vgv.dev/docs/category/deploy)
 
 ## Regenerating openapi documentation
 

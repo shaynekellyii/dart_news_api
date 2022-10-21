@@ -76,7 +76,7 @@ components:
       properties:
         createdAt:
           type: string
-          description: RFC3339 Datetime to set
+          description: RFC3339 DateTime when the article was published
           format: date-time
           example: "2021-06-20T01:02:03+00:00"
         title:

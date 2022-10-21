@@ -3,7 +3,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| **createdAt** | **Date** | RFC3339 Datetime to set | [default to null] |
+| **createdAt** | **Date** | RFC3339 DateTime when the article was published | [default to null] |
 | **title** | **String** | Title of the article | [default to null] |
 | **url** | **String** | URL of the article | [default to null] |
 | **content** | **String** | Truncated article content | [default to null] |
