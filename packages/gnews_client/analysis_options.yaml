@@ -1,0 +1,15 @@
+include: package:very_good_analysis/analysis_options.3.1.0.yaml
+analyzer:
+  exclude:
+    - build/**
+    # Ignore generated code
+    - '**.freezed.dart'
+    - '**.g.dart'
+  errors:
+    # Required for json_serializable annotations:
+    # https://pub.dev/packages/freezed#disabling-invalid_annotation_target-warning-and-warning-in-generates-files
+    invalid_annotation_target: ignore
+linter:
+  rules:
+    file_names: false
+    public_member_api_docs: false

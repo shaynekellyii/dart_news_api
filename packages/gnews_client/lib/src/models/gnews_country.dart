@@ -1,0 +1,36 @@
+import 'package:country_code/country_code.dart';
+
+class GNewsCountry {
+  static final supportedCountries = {
+    CountryCode.AU,
+    CountryCode.BR,
+    CountryCode.CA,
+    CountryCode.CH,
+    CountryCode.CN,
+    CountryCode.DE,
+    CountryCode.EG,
+    CountryCode.ES,
+    CountryCode.FR,
+    CountryCode.GB,
+    CountryCode.GR,
+    CountryCode.HK,
+    CountryCode.IE,
+    CountryCode.IL,
+    CountryCode.IN,
+    CountryCode.IT,
+    CountryCode.JP,
+    CountryCode.NL,
+    CountryCode.NO,
+    CountryCode.PE,
+    CountryCode.PH,
+    CountryCode.PK,
+    CountryCode.PT,
+    CountryCode.RO,
+    CountryCode.RU,
+    CountryCode.SE,
+    CountryCode.SG,
+    CountryCode.TW,
+    CountryCode.UA,
+    CountryCode.US,
+  };
+}

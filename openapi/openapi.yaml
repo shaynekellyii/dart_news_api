@@ -1,0 +1,173 @@
+openapi: 3.0.1
+info:
+  title: Dart news API
+  description: API for fetching top articles or searching articles by keyword.
+  version: '0.1'
+servers:
+  - url: http://localhost:8080
+paths:
+  /search:
+    get:
+      tags:
+        - Article
+      description: Searches articles by `keyword`.
+      parameters:
+        - name: keyword
+          in: query
+          description: Keyword to search for in article title and description
+          required: true
+          schema:
+            type: string
+          example: hockey
+        - name: country
+          description: ISO 3166-1 2-character country code
+          in: query
+          schema:
+            $ref: '#/components/schemas/Country'
+          example: CA
+        - name: count
+          in: query
+          description: Maximum amount of articles to be returned
+          schema:
+            type: integer
+            maximum: 10
+            default: 10
+          example: 2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Articles'
+      servers:
+        - url: http://localhost:8080
+    servers:
+      - url: http://localhost:8080
+  /articles:
+    get:
+      tags:
+        - Article
+      description: Lists top English language headlines.
+      parameters:
+        - name: count
+          in: query
+          description: Maximum amount of articles to be returned
+          schema:
+            type: integer
+            maximum: 10
+            default: 10
+          example: 5
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Articles'
+      servers:
+        - url: http://localhost:8080
+    servers:
+      - url: http://localhost:8080
+components:
+  schemas:
+    Article:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          description: RFC3339 Datetime to set
+          format: date-time
+          example: "2021-06-20T01:02:03+00:00"
+        title:
+          type: string
+          description: Title of the article
+          example: 'Vancouver Canucks on record losing streak'
+        url:
+          type: string
+          description: URL of the article
+          example: 'https://sportsnet.ca/article'
+        content:
+          type: string
+          description: Truncated article content
+          example: 'The long losing streak continues as...[1029 words]'
+        sourceName:
+          type: string
+          description: Name of the publisher
+          example: 'Sportsnet'
+        sourceUrl:
+          type: string
+          description: Top-level URL to the publisher's website
+          example: 'https://sportsnet.ca'
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        description:
+          type: string
+        imageUrl:
+          type: string
+      required:
+        - createdAt
+        - title
+        - url
+        - content
+        - sourceName
+        - sourceUrl
+        - metadata
+    Articles:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Article'
+      required:
+        - count
+        - articles
+    Metadata:
+      type: object
+      properties:
+        wordFrequency:
+          type: object
+          properties:
+            word:
+              type: integer
+      required:
+        - count
+        - articles
+    
+    Country:
+      type: string
+      enum:
+        - AU
+        - BR
+        - CA
+        - CH
+        - CN
+        - DE
+        - EG
+        - ES
+        - FR
+        - GB
+        - GR
+        - HK
+        - IE
+        - IL
+        - IN
+        - IT
+        - JP
+        - NL
+        - NO
+        - PE
+        - PH
+        - PK
+        - PT
+        - RO
+        - RU
+        - SE
+        - SG
+        - TW
+        - UA
+        - US
